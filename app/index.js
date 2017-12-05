@@ -31,7 +31,7 @@ const config={
 		},
 		{
 			"name": "ASSESS",
-			color: "#fbdb84"
+			"color": "#fbdb84"
 		},
 		{
 			"name": "HOLD",
@@ -46,8 +46,6 @@ const config={
 			"ring": 0,
 			"label": "AWS EMR",
 			"active": false,
-			"link": "../data_processing/aws_emr.html",
-			"moved": 0
     }
   ]
 
