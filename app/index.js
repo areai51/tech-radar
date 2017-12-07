@@ -5,23 +5,35 @@ function text_visualization(config) {
     $(".title")
   );
   for (let ring = 0; ring < config.rings.length; ring++) {
-    let ringDiv = $("<div/>", { class: "ring", "data-ring": ring }).appendTo(
-      ringsContainer
-    );
+    let quadTitle = $("<span/>", {
+      class: "ring-title",
+      html: config.rings[ring].name
+    });
+    let ringDiv = $("<ul/>", {
+      class: "ring",
+      "data-ring": ring,
+      html: quadTitle
+    }).appendTo(ringsContainer);
   }
   /* Quadrants */
   let quadContainer = $("<div/>", { class: "quad-container" });
   for (let quad = 0; quad < config.quadrants.length; quad++) {
-    let quadDiv = $("<div/>", { class: "quad", "data-quad": quad }).appendTo(
-      quadContainer
-    );
+    let quadTitle = $("<span/>", {
+      class: "quad-title",
+      html: config.quadrants[quad].name
+    });
+    let quadDiv = $("<div/>", {
+      class: "quad",
+      "data-quad": quad,
+      html: quadTitle
+    }).appendTo(quadContainer);
   }
   $("#textual-data").html(quadContainer);
-  $(".quad").html(ringsContainer);
+  $(".quad").append(ringsContainer);
   $.each(config.entries, function(index, entry) {
     let quadNumber = entry.quadrant,
       ringNumber = entry.ring,
-      ringData = $("<span/>", { html: entry.label });
+      ringData = $("<li/>", { html: entry.label });
     $(".quad-container")
       .find("[data-quad='" + quadNumber + "']")
       .find("[data-ring='" + ringNumber + "']")
